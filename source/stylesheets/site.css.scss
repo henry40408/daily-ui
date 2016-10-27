@@ -1,18 +1,14 @@
 /* global */
 
+@import "media";
+
 html {
   font-size: 18px;
 }
 
-@media (max-width: 50rem) {
-  html {
-    font-size: 20px;
-  }
-}
-
 %font {
   color: #222;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: 300;
 }
 

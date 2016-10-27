@@ -9,12 +9,14 @@
     <title><%= current_page.data.title || "Daily UI" %></title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Roboto:300,400,700" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
 
     <%= stylesheet_link_tag :site %>
-    <% if current_page.data.stylesheet.present? %>
-      <%= stylesheet_link_tag current_page.data.stylesheet.to_sym %>
+    <% if current_page.data.stylesheets.is_a?(Array) %>
+      <% current_page.data.stylesheets.each do |s| %>
+        <%= stylesheet_link_tag s %>
+      <% end %>
     <% end %>
   </head>
 
