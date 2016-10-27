@@ -1,13 +1,19 @@
 ---
-title: Welcome to Middleman
+title: Daily UI
+stylesheets:
+  - index
 ---
 
-<div class="welcome">
-  <div class="logo">
-    <%= image_tag "middleman-logo.svg" %>
+<div class="page-header">
+  <div>
+    <h1>Daily UI</h1>
+    <p class="subheading">Be a REAL fullstack</p>
+    <p>Heng-Yi Wu</p>
   </div>
-  <h1>Middleman is Running</h1>
-  <p class="doc">
-    <%= link_to "Read Documentation Online", "https://middlemanapp.com", target: "_blank" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+</div>
+
+<div class="page-content">
+  <div class="ui-list">
+    <p><%= link_to "Day 1: Sign up", "days/1.html" %></p>
+  </div>
+</div>

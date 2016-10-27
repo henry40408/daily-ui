@@ -1,0 +1,29 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+
+  background-color: #eee;
+
+  & > div {
+    text-align: center;
+  }
+
+  .subheading {
+    &, & > p {
+      line-height: .5;
+    }
+  }
+}
+
+.page-content {
+  min-height: 100vh;
+}
+
+.ui-list {
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 30rem;
+}

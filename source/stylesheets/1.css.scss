@@ -1,0 +1,81 @@
+@import "media";
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+
+  h1 {
+    font-family: Raleway, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .25rem;
+    text-align: center;
+  }
+}
+
+.signup-box {
+  padding: 1rem 0;
+  width: 25%;
+
+  @include breakpoint(mobile) {
+    width: 90%;
+  }
+
+  .separator {
+    display: flex;
+
+    & > div, & > hr {
+      flex: 0 0 33.3%;
+    }
+
+    & > hr {
+      border: 1px solid #ddd;
+      margin: .75rem auto;
+    }
+  }
+
+  .oauth {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 1rem;
+
+    & > div {
+      border-radius: .25rem;
+      flex: 0 0 32%;
+      padding: .5rem;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .fa {
+      margin: .25rem 0 0;
+      font-size: 1.25rem;
+    }
+
+    @mixin oauth-button($classname, $background-color, $color) {
+      .#{$classname} {
+        background-color: $background-color;
+        color: $color;
+        cursor: pointer;
+      }
+
+      .#{$classname}:hover {
+        background-color: darken($background-color, 10%);
+      }
+    }
+
+    @include oauth-button(facebook, #3b5998, #fff);
+    @include oauth-button(google, #dd4b39, #fff);
+    @include oauth-button(github, #fafafa, #333);
+  }
+
+  .agree-our-terms {
+    color: #666;
+    font-size: .75rem;
+    text-align: center;
+  }
+}
