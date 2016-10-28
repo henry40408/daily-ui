@@ -1,4 +1,4 @@
-@import "media";
+@import 'media';
 
 html {
   @include breakpoint(mobile) {
@@ -7,24 +7,24 @@ html {
 }
 
 .page-content {
-  display: flex;
   align-items: center;
-  justify-content: center;
-
+  display: flex;
   height: 100vh;
+  justify-content: center;
 }
 
 .credit-card {
   $border-radius: .8rem;
   $height-base: 53.98rem;
+  $lightgray: #eee;
+  $purple: #800080;
+  $white: #fff;
   $width-base: 85.60rem;
 
-  position: relative;
-
-  border: 1px solid #eee;
+  border: 1px solid $lightgray;
   border-radius: $border-radius;
-
   height: $height-base * .25;
+  position: relative;
   width: $width-base * .25;
 
   @include breakpoint(mobile) {
@@ -32,44 +32,46 @@ html {
     width: $width-base * .25;
   }
 
-  .background {
-    position: absolute;
-    z-index: -10;
-
-    background-image: url(https://unsplash.it/856/539?image=903);
-    background-size: cover;
-
+  .back,
+  .front {
     height: 100%;
-    width: 100%;
+  }
 
+  .back {
+    align-items: center;
+    background-color: darken($purple, 10%);
+    border-radius: $border-radius;
+    color: $white;
+    display: flex;
+    padding: 1rem 1.5rem;
+  }
+
+  .background {
+    background-image: image-url('903.png');
+    background-size: cover;
     border-radius: $border-radius;
     filter: brightness(75%);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -10;
   }
 
   .content {
+    color: $white;
     display: flex;
     flex-direction: column;
-
     height: 100%;
-    padding: 1rem 1.5rem 1rem;
-
+    padding: 1rem 1.5rem;
     z-index: 10;
-    color: #fff;
-  }
-
-  .bank {
-    flex: 0 0 50%;
-    h1 {
-      color: #fff;
-      font-size: 1rem;
-    }
   }
 
   .numbers {
     $letter-spacing: .35rem;
 
-    flex: 0 0 20%;
-
+    align-items: flex-end;
+    display: flex;
+    flex: 0 0 70%;
     font-size: 1.2rem;
     letter-spacing: $letter-spacing;
     margin-right: -$letter-spacing;
@@ -77,32 +79,28 @@ html {
   }
 
   .footer {
-    flex: 0 0 30%;
-
     display: flex;
+    flex: 0 0 30%;
     flex-wrap: wrap;
   }
 
   .valid-dates {
-    flex: 0 0 50%;
-
-    display: flex;
     align-items: flex-end;
+    display: flex;
+    flex: 0 0 50%;
     letter-spacing: .1rem;
-  }
 
-  .valid-dates .title {
-    font-size: .6rem;
-    text-transform: uppercase;
+    .title {
+      font-size: .6rem;
+      text-transform: uppercase;
+    }
   }
 
   .icon {
-    flex: 0 0 50%;
-
-    display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
-
+    display: flex;
+    flex: 0 0 50%;
     font-size: 2rem;
+    justify-content: flex-end;
   }
 }
