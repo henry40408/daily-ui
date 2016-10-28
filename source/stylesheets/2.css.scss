@@ -63,6 +63,7 @@ html {
 
   .front {
     transform: rotateY(0deg);
+    width: 100%;
     z-index: 2;
 
     .background {
@@ -130,19 +131,20 @@ html {
     }
   }
 
-  .numbers {
-    $letter-spacing: .35rem;
+  .number {
+    $letter-spacing: .225rem;
 
     align-items: flex-end;
     display: flex;
     flex: 0 0 70%;
+    font-family: 'Anonymous Pro', monospace;
     font-size: 1.2rem;
     letter-spacing: $letter-spacing;
     margin-right: -$letter-spacing;
     word-spacing: .1rem;
   }
 
-  .valid-dates {
+  .expire-on {
     align-items: flex-end;
     display: flex;
     letter-spacing: .1rem;
@@ -150,6 +152,10 @@ html {
     .title {
       font-size: .6rem;
       text-transform: uppercase;
+    }
+
+    .value {
+      font-family: 'Anonymous Pro', monospace;
     }
   }
 
