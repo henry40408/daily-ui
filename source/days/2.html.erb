@@ -7,40 +7,62 @@ stylesheets:
 ---
 
 <div class="page-content">
-  <div class="credit-card">
-    <div class="flipper">
-      <div class="front">
-        <div class="background"></div>
-        <div class="content">
-          <div class="numbers">4503 5996 2737 0496</div>
-          <div class="footer">
-            <div class="valid-dates">
-              <div>
-                <div class="title">expires</div>
-                <div>10/16 - 10/22</div>
+  <form action="" class="ui form">
+    <div class="field">
+      <div class="credit-card">
+        <div class="flipper">
+          <div class="front">
+            <div class="background"></div>
+            <div class="content">
+              <div class="numbers">4503 5996 2737 0496</div>
+              <div class="footer">
+                <div class="valid-dates">
+                  <div>
+                    <div class="title">expires</div>
+                    <div>10/16 - 10/22</div>
+                  </div>
+                </div>
+                <div class="payment-icon">
+                  <i class="pf pf-visa"></i>
+                </div>
               </div>
             </div>
-            <div class="payment-icon">
-              <i class="pf pf-visa"></i>
+          </div>
+          <div class="back">
+            <div class="mag-stripe">
+              <div class="stripe"></div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="back">
-        <div class="mag-stripe">
-          <div class="stripe"></div>
-        </div>
-        <div class="content">
-          <div class="card-holder">
-            <div class="title">Card Holder</div>
-            <div class="value">John Doe</div>
-          </div>
-          <div class="cvv">
-            <div class="title">CVV</div>
-            <span class="value">000</span>
+            <div class="content">
+              <div class="card-holder">
+                <div class="title">Card Holder</div>
+                <div class="value">John Doe</div>
+              </div>
+              <div class="cvv">
+                <div class="title">CVV</div>
+                <span class="value">000</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="field">
+      <label for="">card number</label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label for="">card holder</label>
+      <input type="text">
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <label for="">expire date</label>
+        <input type="text" placeholder="MM/YY">
+      </div>
+      <div class="field">
+        <label for="">CVV</label>
+        <input type="text">
+      </div>
+    </div>
+  </form>
 </div>

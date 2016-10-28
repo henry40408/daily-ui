@@ -1,5 +1,8 @@
 @import 'media';
 
+$ratio: .25;
+$width-base: 85.60rem;
+
 html {
   @include breakpoint(mobile) {
     font-size: 14px;
@@ -13,17 +16,20 @@ html {
   justify-content: center;
 }
 
+.ui.form {
+  width: $width-base * $ratio;
+}
+
 .credit-card {
   $black: #333;
   $border-radius: .8rem;
   $height-base: 53.98rem;
   $lightgray: #eee;
   $purple: #800080;
-  $ratio: .25;
   $white: #fff;
-  $width-base: 85.60rem;
 
   height: $height-base * $ratio;
+  margin: 0 auto 1rem;
   perspective: 1000px;
   position: relative;
   width: $width-base * $ratio;
