@@ -14,56 +14,114 @@ html {
 }
 
 .credit-card {
+  $black: #333;
   $border-radius: .8rem;
   $height-base: 53.98rem;
   $lightgray: #eee;
   $purple: #800080;
+  $ratio: .25;
   $white: #fff;
   $width-base: 85.60rem;
 
-  border: 1px solid $lightgray;
-  border-radius: $border-radius;
-  height: $height-base * .25;
+  height: $height-base * $ratio;
+  perspective: 1000px;
   position: relative;
-  width: $width-base * .25;
+  width: $width-base * $ratio;
 
   @include breakpoint(mobile) {
-    height: $height-base * .25;
-    width: $width-base * .25;
+    height: $height-base * $ratio;
+    width: $width-base * $ratio;
+  }
+
+  .flipper {
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .6s;
+  }
+
+  &:hover .flipper {
+    transform: rotateY(180deg);
   }
 
   .back,
   .front {
+    backface-visibility: hidden;
+    border: 1px solid $black;
+    border-radius: $border-radius;
     height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  .front {
+    transform: rotateY(0deg);
+    z-index: 2;
+
+    .background {
+      background-image: image-url('903.png');
+      background-size: cover;
+      border-radius: $border-radius;
+      filter: brightness(75%);
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: -10;
+    }
+
+    .content {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1rem 1.5rem;
+      z-index: 10;
+    }
+
+    .footer {
+      display: flex;
+      flex: 0 0 30%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 
   .back {
     align-items: center;
-    background-color: darken($purple, 10%);
+    background-color: $lightgray;
     border-radius: $border-radius;
-    color: $white;
-    display: flex;
-    padding: 1rem 1.5rem;
-  }
-
-  .background {
-    background-image: image-url('903.png');
-    background-size: cover;
-    border-radius: $border-radius;
-    filter: brightness(75%);
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: -10;
-  }
-
-  .content {
-    color: $white;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 1rem 1.5rem;
-    z-index: 10;
+    transform: rotateY(180deg);
+    width: 100%;
+
+    .content {
+      align-items: center;
+      display: flex;
+      flex: 0 0 70%;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      width: 100%;
+    }
+
+    .title {
+      font-size: .5rem;
+      letter-spacing: .1rem;
+    }
+
+    .mag-stripe {
+      flex: 0 0 30%;
+      padding: 5rem * $ratio 0 0;
+      width: 100%;
+    }
+
+    .stripe {
+      background-color: $black;
+      height: 10.1rem * $ratio;
+      width: 100%;
+    }
   }
 
   .numbers {
@@ -78,16 +136,9 @@ html {
     word-spacing: .1rem;
   }
 
-  .footer {
-    display: flex;
-    flex: 0 0 30%;
-    flex-wrap: wrap;
-  }
-
   .valid-dates {
     align-items: flex-end;
     display: flex;
-    flex: 0 0 50%;
     letter-spacing: .1rem;
 
     .title {
@@ -96,11 +147,49 @@ html {
     }
   }
 
-  .icon {
+  .payment-icon {
     align-items: flex-end;
     display: flex;
-    flex: 0 0 50%;
     font-size: 2rem;
     justify-content: flex-end;
+  }
+
+  .cvv {
+    text-align: center;
+
+    .title,
+    .value {
+      padding: .2rem;
+    }
+
+    .title {
+      $letter-spacing: .1rem;
+      $margin-right: .5rem - $letter-spacing;
+      letter-spacing: $letter-spacing;
+      line-height: 2;
+    }
+
+    .value {
+      background: $white;
+      border: 1px solid $lightgray;
+      color: $black;
+      padding: 0 .25rem;
+    }
+  }
+
+  .card-holder {
+    .title {
+      margin: 0 0 .25rem;
+      text-transform: uppercase;
+    }
+
+    .value {
+      border: 1px solid $black;
+      border-width: 0 0 1px;
+      font-family: 'Dancing Script', serif;
+      font-size: 2rem;
+      padding: 0 0 .5rem;
+      width: 10rem;
+    }
   }
 }
