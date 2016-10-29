@@ -26,5 +26,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
     <%= javascript_include_tag :all %>
+    <% if current_page.data.javascripts.is_a?(Array) %>
+      <% current_page.data.javascripts.each do |j| %>
+        <%= javascript_include_tag j %>
+      <% end %>
+    <% end %>
   </body>
 </html>
