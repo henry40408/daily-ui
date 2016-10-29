@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Day 2: Credit Card</title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Roboto:300,400,700" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+
+    <link href="../stylesheets/site.css" rel="stylesheet" />
+        <link href="//fonts.googleapis.com/css?family=Dancing+Script:400,700|Anonymous+Pro" rel="stylesheet" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/paymentfont/1.1.2/css/paymentfont.min.css" rel="stylesheet" />
+        <link href="../stylesheets/2.css" rel="stylesheet" />
+  </head>
+
+  <body class="days days_2">
+    <div class="page-content">
+  <form action="" class="ui form">
+    <div class="field">
+      <div class="credit-card">
+        <div class="flipper">
+          <div class="front">
+            <div class="background"></div>
+            <div class="content">
+              <div id="card-number" class="number">____ ____ ____ ____</div>
+              <div class="footer">
+                <div class="expire-on">
+                  <div>
+                    <div class="title">expire on</div>
+                    <div class="value" id="expire-on">__/__</div>
+                  </div>
+                </div>
+                <div class="payment-icon">
+                  <i class="pf pf-visa"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="back">
+            <div class="mag-stripe">
+              <div class="stripe"></div>
+            </div>
+            <div class="content">
+              <div class="card-holder">
+                <div class="title">Card Holder</div>
+                <div class="value" id="card-holder">&nbsp;</div>
+              </div>
+              <div class="cvv">
+                <div class="title">CVV</div>
+                <span class="value" id="cvv">000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" id="card-number-field" placeholder="card number">
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <select class="ui fluid search dropdown" id="expire-month-field">
+          <option value="">expire month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+      <div class="field">
+        <input type="text" placeholder="expire year" id="expire-year-field">
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" id="card-holder-field" placeholder="card holder">
+      </div>
+      <div class="field">
+        <input type="text" id="cvv-field" placeholder="CVV">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script>$('.ui.dropdown').dropdown();</script>
+    <script src="../javascripts/all.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <script src="../javascripts/2.js"></script>
+  </body>
+</html>
