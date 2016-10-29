@@ -5,6 +5,7 @@ stylesheets:
   - //cdnjs.cloudflare.com/ajax/libs/paymentfont/1.1.2/css/paymentfont.min.css
   - 2
 javascripts:
+  - //cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.14.0/babel.min.js
   - //cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js
   - 2
 ---
@@ -22,7 +23,7 @@ javascripts:
                 <div class="expire-on">
                   <div>
                     <div class="title">expire on</div>
-                    <div class="value">__/__</div>
+                    <div class="value" id="expire-on">__/__</div>
                   </div>
                 </div>
                 <div class="payment-icon">
@@ -38,11 +39,11 @@ javascripts:
             <div class="content">
               <div class="card-holder">
                 <div class="title">Card Holder</div>
-                <div class="value">&nbsp;</div>
+                <div class="value" id="card-holder">&nbsp;</div>
               </div>
               <div class="cvv">
                 <div class="title">CVV</div>
-                <span class="value">000</span>
+                <span class="value" id="cvv">000</span>
               </div>
             </div>
           </div>
@@ -50,21 +51,36 @@ javascripts:
       </div>
     </div>
     <div class="field">
-      <label for="">card number</label>
-      <input type="text" id="card-number-field">
-    </div>
-    <div class="field">
-      <label for="">card holder</label>
-      <input type="text">
+      <input type="text" id="card-number-field" placeholder="card number">
     </div>
     <div class="two fields">
       <div class="field">
-        <label for="">expire date</label>
-        <input type="text" placeholder="MM/YY">
+        <select class="ui fluid search dropdown" id="expire-month-field">
+          <option value="">expire month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
       </div>
       <div class="field">
-        <label for="">CVV</label>
-        <input type="text">
+        <input type="text" placeholder="expire year" id="expire-year-field">
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" id="card-holder-field" placeholder="card holder">
+      </div>
+      <div class="field">
+        <input type="text" id="cvv-field" placeholder="CVV">
       </div>
     </div>
   </form>
