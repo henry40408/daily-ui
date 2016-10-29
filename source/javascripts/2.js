@@ -1,24 +1,49 @@
-jQuery(document).ready(function() {
-  var $number = jQuery('#card-number');
-  var $number_field = jQuery('#card-number-field');
+jQuery(document).ready(() => {
+  const $number = jQuery('#card-number');
+  const $expireOn = jQuery('#expire-on');
+  const $cardHolder = jQuery('#card-holder');
+  const $cvv = jQuery('#cvv');
 
-  Rx.Observable.fromEvent($number_field, 'input')
-    .map(function(e) { return e.target.value; })
-    .map(function(v) {
-      return jQuery.map(v.split(''), function(v) {
-        if (!isNaN(v))
-          return v;
-      }).join('').substring(0, 16);
-    })
-    .do(function(v) { $number_field.val(v); })
-    .map(function(v) {
-      return v + Array
-        .apply(0, Array(16 - v.length))
-        .map(function() { return '_'; })
-        .join('');
-    })
-    .map(function(v) { return v.match(/.{1,4}/g).join(' '); })
-    .subscribe(function(v) {
-      $number.html(v);
-    });
+  const $expireMonthField = jQuery('#expire-month-field');
+  const $expireYearField = jQuery('#expire-year-field');
+  const $numberField = jQuery('#card-number-field');
+  const $cardHolderField = jQuery('#card-holder-field');
+  const $cvvField = jQuery('#cvv-field');
+
+  Rx.Observable.fromEvent($numberField, 'input')
+    .map(e => e.target.value)
+    .flatMap(v => Rx.Observable.from(v.split(''))
+      .filter(v => v.match(/[0-9]/g))
+      .take(16)
+      .reduce((acc, v) => acc + v, ''))
+    .do(v => $numberField.val(v))
+    .map(v => (`${v}________________`).slice(0, 16))
+    .map(v => v.match(/.{1,4}/g).join(' '))
+    .subscribe(v => $number.html(v));
+
+  Rx.Observable.fromEvent($expireMonthField, 'change')
+    .map(e => e.target.value)
+    .map(v => `0${v}`.slice(-2))
+    .map(v => `${v}/${$expireOn.text().split('/')[1]}`)
+    .subscribe(v => $expireOn.text(v));
+
+  Rx.Observable.fromEvent($expireYearField, 'input')
+    .map(e => e.target.value)
+    .map(v => `__${v}`.slice(-2))
+    .map(v => `${$expireOn.text().split('/')[0]}/${v}`)
+    .subscribe(v => $expireOn.text(v));
+
+  Rx.Observable.fromEvent($cardHolderField, 'input')
+    .map(e => e.target.value)
+    .subscribe(v => $cardHolder.text(v));
+
+  Rx.Observable.fromEvent($cvvField, 'input')
+    .map(e => e.target.value)
+    .flatMap(v => Rx.Observable.from(v.split(''))
+      .filter(v => v.match(/[0-9]/g))
+      .take(3)
+      .reduce((acc, v) => acc + v, ''))
+    .do(v => $cvvField.val(v))
+    .map(v => `000${v}`.slice(-3))
+    .subscribe(v => $cvv.text(v));
 });
