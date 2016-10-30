@@ -5,10 +5,15 @@ stylesheets:
 ---
 
 <div class="page-header">
+  <div class="background-image"></div>
   <div>
+    <h2>Heng-Yi Wu's</h2>
     <h1>Daily UI</h1>
-    <p class="subheading">Be a REAL fullstack</p>
-    <p>Heng-Yi Wu</p>
+    <p class="subheading">Be a Real Fullstack</p>
+    <p class="accounts">
+      <a href="https://github.com/henry40408/"><i class="fa fa-github"></i></a>
+      <a href="https://henry40408-blog.herokuapp.com/"><i class="fa fa-rss"></i></a>
+    </p>
   </div>
 </div>
 
@@ -16,5 +21,10 @@ stylesheets:
   <div class="ui-list">
     <p><%= link_to "Day 1: Sign up", "days/1.html" %></p>
     <p><%= link_to "Day 2: Credit card", "days/2.html" %></p>
+    <p>Day 3: Landing page</p>
   </div>
+</div>
+
+<div class="page-footer">
+  <p>&copy; Heng-Yi Wu <%= DateTime.now.year %>.</p>
 </div>
